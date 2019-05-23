@@ -7,4 +7,4 @@ exports.config = {
     password: '1234',
     database: 'burgers_db',
 };
-//# sourceMappingURL=connection.js.map
+//# sourceMappingURL=connectionConfig.js.map

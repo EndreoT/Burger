@@ -1,19 +1,38 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql = require("mysql");
-// import {config} from './connection';
-// interface ProductData {
-//   item_id: number;
-//   product_name: string;
-//   department_name: string;
-//   price: number;
-//   stock_quantity: number;
-//   product_sales: number;
-// }
-class Database {
+class ORM {
     constructor(config) {
         this.connection = mysql.createConnection(config);
     }
+    selectAll(tableName) {
+        const query = "Select * FROM ??;";
+        return new Promise((resolve, reject) => {
+            this.connection.query(query, [tableName], (err, burgers) => {
+                if (err)
+                    reject(err);
+                resolve(burgers);
+            });
+        });
+    }
+    insertOne(tableName, burgerName, devoured) {
+        const query = "INSERT INTO ?? SET ? ;";
+        return new Promise((resolve, reject) => {
+            this.connection.query(query, [
+                tableName,
+                {
+                    burger_name: burgerName,
+                    devoured,
+                },
+            ], (err, data, fields) => {
+                if (err)
+                    reject(err);
+                resolve([data, fields]);
+            });
+        });
+    }
+    // updateOne {
+    // }
     // getProductById(productId: number): Promise<ProductData> {
     //   return new Promise((resolve, reject) => {
     //     this.connection.query(
@@ -229,5 +248,5 @@ class Database {
         });
     }
 }
-exports.Database = Database;
+exports.ORM = ORM;
 //# sourceMappingURL=orm.js.map

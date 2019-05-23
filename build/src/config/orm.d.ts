@@ -1,6 +1,9 @@
 import * as mysql from 'mysql';
-export declare class Database {
+import { BurgerData } from '../types/types';
+export declare class ORM {
     connection: mysql.Connection;
     constructor(config: mysql.ConnectionConfig);
+    selectAll(tableName: string): Promise<BurgerData[]>;
+    insertOne(tableName: string, burgerName: string, devoured: boolean): Promise<any>;
     close(): void;
 }

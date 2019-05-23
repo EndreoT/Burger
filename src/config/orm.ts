@@ -1,21 +1,53 @@
 import * as mysql from 'mysql';
-// import {config} from './connection';
 
-// interface ProductData {
-//   item_id: number;
-//   product_name: string;
-//   department_name: string;
-//   price: number;
-//   stock_quantity: number;
-//   product_sales: number;
-// }
+import { BurgerData } from '../types/types'
 
-export class Database {
+export class ORM {
   connection: mysql.Connection;
 
   constructor(config: mysql.ConnectionConfig) {
     this.connection = mysql.createConnection(config);
   }
+
+  selectAll(tableName: string): Promise<BurgerData[]> {
+    const query = "Select * FROM ??;";
+
+    return new Promise((resolve, reject) => {
+      this.connection.query(
+        query,
+        [tableName],
+        (err: any, burgers: BurgerData[]) => {
+          if (err) reject(err);
+          resolve(burgers);
+        });
+    });
+  }
+
+  insertOne(tableName: string, burgerName: string, devoured: boolean): Promise<any> {
+    const query = "INSERT INTO ?? SET ? ;";
+
+    return new Promise((resolve, reject) => {
+      this.connection.query(
+        query,
+        [
+          tableName,
+          {
+            burger_name: burgerName,
+            devoured,
+          },
+        ],
+        (err, data) => {
+          if (err) reject(err);
+          resolve(data);
+        });
+    });
+
+  }
+
+  // updateOne {
+
+  // }
+
 
   // getProductById(productId: number): Promise<ProductData> {
   //   return new Promise((resolve, reject) => {
