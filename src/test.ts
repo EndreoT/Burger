@@ -7,6 +7,14 @@ const burger = new Burger(config);
 //   console.log(item)
 // })
 
-burger.insertOne('newBurger', true).then(item => {
-  console.log(item)
-})
+// burger.insertOne('newBurger', true).then(item => {
+//   console.log(item)
+// })
+
+// burger.updateOne(4, "ok", false).then(item => {
+//   console.log(item)
+// })
+
+// burger.deleteOne(4).then(item => {
+//   console.log(item)
+// })

@@ -14,9 +14,18 @@ export class Burger {
     return result;
   }
 
-  async insertOne(burgerName: string, devoured: boolean) {
+  async insertOne(burgerName: string, devoured: boolean): Promise<any> {
     const result = await this.orm.insertOne('burgers', burgerName, devoured);
     return result;
   }
 
+  async updateOne(burgerId: number, burgerName: string, devoured: boolean): Promise<any> {
+    const result = await this.orm.updateOne('burgers', burgerId, burgerName, devoured);
+    return result;
+  }
+
+  async deleteOne(burgerId: number): Promise<any> {
+    const result = await this.orm.deleteOne('burgers', burgerId);
+    return result;
+  }
 }
