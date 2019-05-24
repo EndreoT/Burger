@@ -14,8 +14,8 @@ class Burger {
     return result;
   }
 
-  async selectOne(burgerId: number): Promise<BurgerData> {
-    const result: BurgerData = await this.orm.selectOne('burgers', burgerId);
+  async selectOne(burgerId: number): Promise<BurgerData[]> {
+    const result: BurgerData[] = await this.orm.selectOne('burgers', burgerId);
     return result;
   }
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"htmlController.js","sourceRoot":"","sources":["../../../src/controllers/htmlController.ts"],"names":[],"mappings":";;AACA,2CAAyC;AAElC,KAAK,UAAU,QAAQ,CAAC,GAAoB,EAAE,GAAqB;IACxE,MAAM,OAAO,GAAG,MAAM,cAAM,CAAC,SAAS,EAAE,CAAC;IACzC,GAAG,CAAC,MAAM,CAAC,OAAO,EAAE,EAAE,OAAO,EAAE,OAAO,EAAE,CAAC,CAAC;AAC5C,CAAC;AAHD,4BAGC"}

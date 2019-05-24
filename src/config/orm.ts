@@ -24,7 +24,7 @@ class ORM {
     });
   }
 
-  selectOne(tableName: string, burgerId: number): Promise<BurgerData> {
+  selectOne(tableName: string, burgerId: number): Promise<BurgerData[]> {
     const query = "Select * FROM ?? WHERE ?;";
 
     return new Promise((resolve, reject) => {
@@ -34,7 +34,7 @@ class ORM {
           tableName,
           { "id": burgerId },
         ],
-        (err: any, burger: BurgerData) => {
+        (err: any, burger: BurgerData[]) => {
           if (err) reject(err);
           resolve(burger);
         });
