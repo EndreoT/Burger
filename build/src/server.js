@@ -15,7 +15,8 @@ app.use(express.json());
 // Set Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-// Routes
+// Routing
+// =============================================================
 // app.use('/', htmlRouter);
 app.use('/api', apiRoutes_1.apiRouter);
 // Starts the server to begin listening
