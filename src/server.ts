@@ -1,7 +1,8 @@
 import * as express from 'express';
 
 const exphbs = require("express-handlebars");
-// const apiRouter = require('./routing/apiRoutes');
+
+import {apiRouter} from './routes/apiRoutes';
 // const htmlRouter = require('./routing/htmlRoutes');
 
 const PORT = process.env.PORT || 3000;
@@ -21,9 +22,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-// Routes
+// Routing
+// =============================================================
 // app.use('/', htmlRouter);
-// app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 // Starts the server to begin listening
 // =============================================================

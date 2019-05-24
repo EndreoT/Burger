@@ -1,6 +1,6 @@
 import * as mysql from 'mysql';
 import { BurgerData } from '../types/types';
-export declare class ORM {
+declare class ORM {
     connection: mysql.Connection;
     constructor(config: mysql.ConnectionConfig);
     selectAll(tableName: string): Promise<BurgerData[]>;
@@ -9,3 +9,5 @@ export declare class ORM {
     deleteOne(tableName: string, burgerId: number): Promise<any>;
     close(): void;
 }
+declare const orm: ORM;
+export { ORM, orm };

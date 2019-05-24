@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql = require("mysql");
+const connectionConfig_1 = require("./connectionConfig");
 class ORM {
     constructor(config) {
         this.connection = mysql.createConnection(config);
@@ -77,4 +78,6 @@ class ORM {
     }
 }
 exports.ORM = ORM;
+const orm = new ORM(connectionConfig_1.config);
+exports.orm = orm;
 //# sourceMappingURL=orm.js.map

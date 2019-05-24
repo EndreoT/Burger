@@ -1,12 +1,12 @@
-import {ORM} from '../config/orm';
-import * as mysql from 'mysql';
-import {BurgerData} from '../types/types';
+import { ORM, orm } from '../config/orm';
+// import * as mysql from 'mysql';
+import { BurgerData } from '../types/types';
 
-export class Burger {
+class Burger {
   orm: ORM;
 
-  constructor(config: mysql.ConnectionConfig) {
-    this.orm = new ORM(config);
+  constructor() {
+    this.orm = orm;
   }
 
   async selectAll(): Promise<BurgerData[]> {
@@ -29,3 +29,7 @@ export class Burger {
     return result;
   }
 }
+
+const burger = new Burger();
+
+export { Burger, burger };

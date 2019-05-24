@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const orm_1 = require("../config/orm");
 class Burger {
-    constructor(config) {
-        this.orm = new orm_1.ORM(config);
+    constructor() {
+        this.orm = orm_1.orm;
     }
     async selectAll() {
         const result = await this.orm.selectAll("burgers");
@@ -23,4 +23,6 @@ class Burger {
     }
 }
 exports.Burger = Burger;
+const burger = new Burger();
+exports.burger = burger;
 //# sourceMappingURL=model.js.map

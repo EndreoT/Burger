@@ -1,8 +1,9 @@
 import * as mysql from 'mysql';
 
-import { BurgerData } from '../types/types'
+import { BurgerData } from '../types/types';
+import {config} from './connectionConfig';
 
-export class ORM {
+class ORM {
   connection: mysql.Connection;
 
   constructor(config: mysql.ConnectionConfig) {
@@ -98,3 +99,7 @@ export class ORM {
     });
   }
 }
+
+const orm = new ORM(config);
+
+export {ORM, orm};

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const exphbs = require("express-handlebars");
-// const apiRouter = require('./routing/apiRoutes');
+const apiRoutes_1 = require("./routes/apiRoutes");
 // const htmlRouter = require('./routing/htmlRoutes');
 const PORT = process.env.PORT || 3000;
 // Sets up the Express App
@@ -17,7 +17,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Routes
 // app.use('/', htmlRouter);
-// app.use('/api', apiRouter);
+app.use('/api', apiRoutes_1.apiRouter);
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, () => {

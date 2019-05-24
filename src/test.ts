@@ -1,11 +1,11 @@
 import {Burger} from './models/model'
 import {config} from './config/connectionConfig'
 
-const burger = new Burger(config);
+const burger = new Burger();
 
-// burger.selectAll().then(item => {
-//   console.log(item)
-// })
+burger.selectAll().then(item => {
+  console.log(item)
+})
 
 // burger.insertOne('newBurger', true).then(item => {
 //   console.log(item)
