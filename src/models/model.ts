@@ -1,5 +1,4 @@
 import { ORM, orm } from '../config/orm';
-// import * as mysql from 'mysql';
 import { BurgerData } from '../types/types';
 
 class Burger {
@@ -35,6 +34,6 @@ class Burger {
   }
 }
 
-const burger = new Burger();
+const burger: Burger = new Burger();
 
 export { Burger, burger };

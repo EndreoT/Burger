@@ -3,6 +3,7 @@ import * as mysql from 'mysql';
 import { BurgerData } from '../types/types';
 import { config } from './connectionConfig';
 
+
 class ORM {
   connection: mysql.Connection;
 
@@ -17,7 +18,7 @@ class ORM {
       this.connection.query(
         query,
         [tableName],
-        (err: any, burgers: BurgerData[]) => {
+        (err, burgers: BurgerData[]) => {
           if (err) reject(err);
           resolve(burgers);
         });
@@ -34,7 +35,7 @@ class ORM {
           tableName,
           { "id": burgerId },
         ],
-        (err: any, burger: BurgerData[]) => {
+        (err, burger: BurgerData[]) => {
           if (err) reject(err);
           resolve(burger);
         });

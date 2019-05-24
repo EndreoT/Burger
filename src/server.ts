@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Sets up the Express App
 // =============================================================
-const app = express();
+const app: express.Application = express();
 
 app.use(express.static("public"));
 

@@ -36,7 +36,7 @@ async function updateBurger(req, res) {
 }
 exports.updateBurger = updateBurger;
 async function deleteBurger(req, res) {
-    const burgerId = req.params.burgerId;
+    const burgerId = utils.convertToInteger(req.params.burgerId);
     const result = await model_1.burger.deleteOne(burgerId);
     res.json(result);
 }

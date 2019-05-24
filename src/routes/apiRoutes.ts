@@ -1,7 +1,8 @@
 import * as express from 'express';
 import * as apiController from '../controllers/apiControllers';
 
-const router = express.Router();
+const router: express.Router = express.Router();
+
 
 router.get('/burgers', apiController.getAllBurgers);
 

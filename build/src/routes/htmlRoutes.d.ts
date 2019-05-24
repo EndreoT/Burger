@@ -1,1 +1,2 @@
-export declare const htmlRouter: import("express-serve-static-core").Router;
+import * as express from 'express';
+export declare const htmlRouter: express.Router;
