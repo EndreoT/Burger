@@ -16,6 +16,19 @@ class ORM {
             });
         });
     }
+    selectOne(tableName, burgerId) {
+        const query = "Select * FROM ?? WHERE ?;";
+        return new Promise((resolve, reject) => {
+            this.connection.query(query, [
+                tableName,
+                { "id": burgerId },
+            ], (err, burger) => {
+                if (err)
+                    reject(err);
+                resolve(burger);
+            });
+        });
+    }
     insertOne(tableName, burgerName, devoured) {
         const query = "INSERT INTO ?? SET ? ;";
         return new Promise((resolve, reject) => {

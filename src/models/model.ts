@@ -10,22 +10,27 @@ class Burger {
   }
 
   async selectAll(): Promise<BurgerData[]> {
-    const result = await this.orm.selectAll("burgers");
+    const result: BurgerData[] = await this.orm.selectAll("burgers");
+    return result;
+  }
+
+  async selectOne(burgerId: number): Promise<BurgerData> {
+    const result: BurgerData = await this.orm.selectOne('burgers', burgerId);
     return result;
   }
 
   async insertOne(burgerName: string, devoured: boolean): Promise<any> {
-    const result = await this.orm.insertOne('burgers', burgerName, devoured);
+    const result: any = await this.orm.insertOne('burgers', burgerName, devoured);
     return result;
   }
 
   async updateOne(burgerId: number, burgerName: string, devoured: boolean): Promise<any> {
-    const result = await this.orm.updateOne('burgers', burgerId, burgerName, devoured);
+    const result: any = await this.orm.updateOne('burgers', burgerId, burgerName, devoured);
     return result;
   }
 
   async deleteOne(burgerId: number): Promise<any> {
-    const result = await this.orm.deleteOne('burgers', burgerId);
+    const result: any = await this.orm.deleteOne('burgers', burgerId);
     return result;
   }
 }

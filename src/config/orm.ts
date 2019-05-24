@@ -1,7 +1,7 @@
 import * as mysql from 'mysql';
 
 import { BurgerData } from '../types/types';
-import {config} from './connectionConfig';
+import { config } from './connectionConfig';
 
 class ORM {
   connection: mysql.Connection;
@@ -20,6 +20,23 @@ class ORM {
         (err: any, burgers: BurgerData[]) => {
           if (err) reject(err);
           resolve(burgers);
+        });
+    });
+  }
+
+  selectOne(tableName: string, burgerId: number): Promise<BurgerData> {
+    const query = "Select * FROM ?? WHERE ?;";
+
+    return new Promise((resolve, reject) => {
+      this.connection.query(
+        query,
+        [
+          tableName,
+          { "id": burgerId },
+        ],
+        (err: any, burger: BurgerData) => {
+          if (err) reject(err);
+          resolve(burger);
         });
     });
   }
@@ -102,4 +119,4 @@ class ORM {
 
 const orm = new ORM(config);
 
-export {ORM, orm};
+export { ORM, orm };

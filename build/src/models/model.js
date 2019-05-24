@@ -9,6 +9,10 @@ class Burger {
         const result = await this.orm.selectAll("burgers");
         return result;
     }
+    async selectOne(burgerId) {
+        const result = await this.orm.selectOne('burgers', burgerId);
+        return result;
+    }
     async insertOne(burgerName, devoured) {
         const result = await this.orm.insertOne('burgers', burgerName, devoured);
         return result;

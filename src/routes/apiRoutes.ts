@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/burgers', apiController.getAllBurgers);
 
-// router.get('/burgers/:burgerId', apiController.getBurger)
+router.get('/burgers/:burgerId', apiController.getBurger);
 
 router.put('/burgers/:burgerId', apiController.updateBurger);
 

@@ -1,11 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const model_1 = require("../models/model");
+const utils = require("../utils.ts/utils");
 async function getAllBurgers(req, res) {
     const burgers = await model_1.burger.selectAll();
     res.json(burgers);
 }
 exports.getAllBurgers = getAllBurgers;
+async function getBurger(req, res) {
+    const burgerId = utils.convertToInteger(req.params.burgerId);
+    const burgerRes = await model_1.burger.selectOne(burgerId);
+    res.json(burgerRes);
+}
+exports.getBurger = getBurger;
 async function addBurger(req, res) {
     const body = req.body;
     const burgerName = body.burgerName;
@@ -15,28 +22,11 @@ async function addBurger(req, res) {
 }
 exports.addBurger = addBurger;
 async function updateBurger(req, res) {
-    function convertToBoolean(input) {
-        try {
-            return JSON.parse(input);
-        }
-        catch (e) {
-            return false;
-        }
-    }
-    function convertToInteger(input) {
-        let result = Number(input);
-        if (isNaN(result) || !Number.isInteger(result)) {
-            result = -1;
-        }
-        return result;
-    }
     try {
         const body = req.body;
-        const burgerId = convertToInteger(req.params.burgerId);
+        const burgerId = utils.convertToInteger(req.params.burgerId);
         const burgerName = body.burgerName;
-        const devoured = convertToBoolean(body.devoured);
-        console.log(burgerId, burgerName, devoured);
-        console.log(typeof burgerId, typeof burgerName, typeof devoured);
+        const devoured = utils.convertToBoolean(body.devoured);
         const result = await model_1.burger.updateOne(burgerId, burgerName, devoured);
         res.json(result);
     }
