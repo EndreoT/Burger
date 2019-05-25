@@ -1,12 +1,27 @@
-<li class="list-group-item"> {{id}}. {{burger_name}}
+<li class="list-group-item">
 
-	{{#unless devoured}}
-		<button class="btn btn-success change-devoured" data-id="{{id}}" data-name="{{burger_name}}">
-			Devoure it!
-		</button>
-	{{/unless}}
-
-	<button class="btn btn-danger delete-burger" data-id="{{id}}" data-name="{{burger_name}}">Delete burger</button>
+	<div class="row">
 
 
+
+		<div class="col-6">
+			<p>{{id}}. {{burger_name}}. {{topping}}</p>
+
+		</div>
+
+
+		<div class="col-6">
+			{{#unless devoured}}
+			<button class="btn btn-success active change-devoured" data-id="{{id}}" data-name="{{burger_name}}">
+				Devoure it!
+			</button>
+			{{/unless}}
+
+			{{!-- <a href="https://github.com/EndreoT/Eclectic-List-Server" class="col-5 btn btn-dark btn-lg active" role="button"
+				aria-pressed="true" target="_blank">Github Repository</a> --}}
+			<button role="button"
+				aria-pressed="true" class="btn btn-danger active delete-burger" data-id="{{id}}" data-name="{{burger_name}}">Delete burger</button>
+
+		</div>
+	</div>
 </li>

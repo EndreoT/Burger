@@ -11,7 +11,7 @@
           placeholder="Burger name">
 
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Example select</label>
+          <label for="exampleFormControlSelect1">Select a topping</label>
           <select class="form-control" id="exampleFormControlSelect1">
             <option name="topping" value="0">Cow</option>
             <option name="topping" value="1">Tomatoes</option>
@@ -33,29 +33,36 @@
     </form>
   </div>
 
-  <div id="burgers" class="row">
+  <div class="row">
+
     <div id="not-devoured" class="col-md-6">
       <h2>Burgers Ready for Devouring</h2>
-      <ul class="list-group">
+      <div class="row">
+        <ul class="list-group">
+          {{#each burgers}}
+          {{#unless devoured}}
+          {{> burgers/burger-block}}
+          {{/unless}}
+          {{/each}}
+        </ul>
 
-        {{#each burgers}}
-        {{#unless devoured}}
-        {{> burgers/burger-block}}
-        {{/unless}}
-        {{/each}}
-      </ul>
+      </div>
     </div>
 
     <div id="devoured" class="col-md-6">
       <h2>Burgers Devoured</h2>
 
-      <ul class="list-group">
-        {{#each burgers}}
-        {{#if devoured}}
-        {{> burgers/burger-block}}
-        {{/if}}
-        {{/each}}
-      </ul>
+      <div class="row">
+        <ul class="list-group">
+          {{#each burgers}}
+          {{#if devoured}}
+          {{> burgers/burger-block}}
+          {{/if}}
+          {{/each}}
+        </ul>
+
+      </div>
+
     </div>
   </div>
 </div>

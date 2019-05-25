@@ -1,2 +1,1 @@
-import * as mysql from 'mysql';
-export declare const config: mysql.ConnectionConfig;
+export declare const config: any;

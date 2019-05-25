@@ -1,11 +1,18 @@
-import * as mysql from 'mysql';
+// import * as mysql from 'mysql';
 
+let configuration: any;
 
-export const config: mysql.ConnectionConfig = {
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '1234',
-  database: 'burgers_db',
-};
+if (process.env.JAWSDB_URL) {
+  configuration = process.env.JAWSDB_URL;
+} else {
+  configuration = {
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1234',
+    database: 'burgers_db',
+  };
 
+}
+
+export const config = configuration;
