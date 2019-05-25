@@ -1,10 +1,12 @@
-<li class="list-group-item"> {{burger_name}} 
-	
-	<button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
-		{{#if devoured}}Devoured!{{else}}Not Devoured!{{/if}}
-	</button>
+<li class="list-group-item"> {{id}}. {{burger_name}}
 
-	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button> 
-	
-	
-	</li>
+	{{#unless devoured}}
+		<button class="btn btn-success change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">
+			Devoure it!
+		</button>
+	{{/unless}}
+
+	<button class="btn btn-danger delete-burger" data-id="{{id}}">Delete burger</button>
+
+
+</li>
