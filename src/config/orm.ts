@@ -42,7 +42,7 @@ class ORM {
     });
   }
 
-  insertOne(tableName: string, burgerName: string, devoured: boolean): Promise<any> {
+  insertOne(tableName: string, burgerName: string, topping: string, devoured: boolean): Promise<any> {
     const query = "INSERT INTO ?? SET ? ;";
 
     return new Promise((resolve, reject) => {
@@ -52,6 +52,7 @@ class ORM {
           tableName,
           {
             burger_name: burgerName,
+            topping,
             devoured,
           },
         ],
@@ -62,7 +63,7 @@ class ORM {
     });
   }
 
-  updateOne(tableName: string, burgerId: number, burgerName: string, devoured: boolean): Promise<any> {
+  updateOne(tableName: string, burgerId: number, burgerName: string, topping: string, devoured: boolean): Promise<any> {
     const query = "UPDATE ?? SET ? WHERE ?";
 
     return new Promise((resolve, reject) => {
@@ -72,6 +73,7 @@ class ORM {
           tableName,
           {
             burger_name: burgerName,
+            topping,
             devoured,
           },
           {

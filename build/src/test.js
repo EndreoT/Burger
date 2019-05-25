@@ -21,4 +21,6 @@ console.log(utils_1.convertStringToBoolean('0'));
 // console.log(JSON.parse('adf'))
 console.log(utils_1.convertStringToBoolean('34'));
 console.log(utils_1.convertStringToBoolean('3sadf'));
+console.log(utils_1.convertStringToBoolean('true'));
+console.log(utils_1.convertStringToBoolean('false'));
 //# sourceMappingURL=test.js.map

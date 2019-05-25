@@ -29,13 +29,14 @@ class ORM {
             });
         });
     }
-    insertOne(tableName, burgerName, devoured) {
+    insertOne(tableName, burgerName, topping, devoured) {
         const query = "INSERT INTO ?? SET ? ;";
         return new Promise((resolve, reject) => {
             this.connection.query(query, [
                 tableName,
                 {
                     burger_name: burgerName,
+                    topping,
                     devoured,
                 },
             ], (err, data) => {
@@ -45,13 +46,14 @@ class ORM {
             });
         });
     }
-    updateOne(tableName, burgerId, burgerName, devoured) {
+    updateOne(tableName, burgerId, burgerName, topping, devoured) {
         const query = "UPDATE ?? SET ? WHERE ?";
         return new Promise((resolve, reject) => {
             this.connection.query(query, [
                 tableName,
                 {
                     burger_name: burgerName,
+                    topping,
                     devoured,
                 },
                 {

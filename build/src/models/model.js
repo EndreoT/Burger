@@ -13,12 +13,12 @@ class Burger {
         const result = await this.orm.selectOne('burgers', burgerId);
         return result;
     }
-    async insertOne(burgerName, devoured) {
-        const result = await this.orm.insertOne('burgers', burgerName, devoured);
+    async insertOne(burgerName, topping, devoured) {
+        const result = await this.orm.insertOne('burgers', burgerName, topping, devoured);
         return result;
     }
-    async updateOne(burgerId, burgerName, devoured) {
-        const result = await this.orm.updateOne('burgers', burgerId, burgerName, devoured);
+    async updateOne(burgerId, burgerName, topping, devoured) {
+        const result = await this.orm.updateOne('burgers', burgerId, burgerName, topping, devoured);
         return result;
     }
     async deleteOne(burgerId) {

@@ -1,12 +1,22 @@
 
 $(function () {
+  const toppings = {
+    '0': 'Cow',
+    '1': 'Tomatoes',
+    '2': 'Lettuce',
+    '3': 'Fried Egg',
+    '4': 'Avocado',
+    '5': 'Bacon'
+  }
+
   $(".change-devoured").click(function(event) {
     const id = $(this).data("id");
+
     const devouredBurger = {
       burgerName: $(this).data("name"),
       devoured: true
     };
-
+    
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: devouredBurger
@@ -19,9 +29,11 @@ $(function () {
 
   $("#submit-burger").click(function (event) {
     event.preventDefault();
-
+    const toppingId = $("[name=topping]:checked").val().trim();
+    
     const burger = {
       burgerName: $("#burger-name").val().trim(),
+      topping: toppings[toppingId],
       devoured: $("[name=devoured]:checked").val().trim()
     };
 
@@ -39,7 +51,6 @@ $(function () {
     event.preventDefault();
     const id = $(this).data("id");
 
-    // Send the DELETE request.
     $.ajax("/api/burgers/" + id, {
       type: "DELETE"
     }).then(

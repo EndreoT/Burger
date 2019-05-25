@@ -5,8 +5,8 @@ declare class Burger {
     constructor();
     selectAll(): Promise<BurgerData[]>;
     selectOne(burgerId: number): Promise<BurgerData[]>;
-    insertOne(burgerName: string, devoured: boolean): Promise<any>;
-    updateOne(burgerId: number, burgerName: string, devoured: boolean): Promise<any>;
+    insertOne(burgerName: string, topping: string, devoured: boolean): Promise<any>;
+    updateOne(burgerId: number, burgerName: string, topping: string, devoured: boolean): Promise<any>;
     deleteOne(burgerId: number): Promise<any>;
 }
 declare const burger: Burger;

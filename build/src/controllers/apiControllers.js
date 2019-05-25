@@ -16,8 +16,9 @@ exports.getBurger = getBurger;
 async function addBurger(req, res) {
     const body = req.body;
     const burgerName = body.burgerName;
+    const topping = body.topping;
     const isDevoured = utils.convertStringToBoolean(body.devoured);
-    const result = await model_1.burger.insertOne(burgerName, isDevoured);
+    const result = await model_1.burger.insertOne(burgerName, topping, isDevoured);
     res.json(result);
 }
 exports.addBurger = addBurger;
@@ -26,8 +27,9 @@ async function updateBurger(req, res) {
         const body = req.body;
         const burgerId = utils.convertToInteger(req.params.burgerId);
         const burgerName = body.burgerName;
+        const topping = body.topping;
         const devoured = utils.convertStringToBoolean(body.devoured);
-        const result = await model_1.burger.updateOne(burgerId, burgerName, devoured);
+        const result = await model_1.burger.updateOne(burgerId, burgerName, topping, devoured);
         res.json(result);
     }
     catch (err) {

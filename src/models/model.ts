@@ -18,13 +18,13 @@ class Burger {
     return result;
   }
 
-  async insertOne(burgerName: string, devoured: boolean): Promise<any> {
-    const result: any = await this.orm.insertOne('burgers', burgerName, devoured);
+  async insertOne(burgerName: string,topping: string, devoured: boolean): Promise<any> {
+    const result: any = await this.orm.insertOne('burgers', burgerName, topping, devoured);
     return result;
   }
 
-  async updateOne(burgerId: number, burgerName: string, devoured: boolean): Promise<any> {
-    const result: any = await this.orm.updateOne('burgers', burgerId, burgerName, devoured);
+  async updateOne(burgerId: number, burgerName: string, topping: string, devoured: boolean): Promise<any> {
+    const result: any = await this.orm.updateOne('burgers', burgerId, burgerName, topping, devoured);
     return result;
   }
 
