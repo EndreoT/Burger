@@ -1,6 +1,10 @@
-export function convertToBoolean(input: string): boolean {
+export function convertStringToBoolean(input: string): boolean {
   try {
-    return JSON.parse(input);
+    const result: number =  JSON.parse(input);
+    if (result >= 1) {
+      return true;
+    }
+    return false;
   } catch (err) {
     return false;
   }

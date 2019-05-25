@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { burger } from '../models/model';
-import * as utils from '../utils.ts/utils';
+import * as utils from '../utils/utils';
 import {BurgerData} from '../types/types';
 
 
@@ -19,7 +19,7 @@ export async function getBurger(req: express.Request, res: express.Response) {
 export async function addBurger(req: express.Request, res: express.Response) {
   const body = req.body;
   const burgerName: string = body.burgerName;
-  const isDevoured: boolean = body;
+  const isDevoured: boolean = utils.convertStringToBoolean(body.devoured);
 
   const result: any = await burger.insertOne(burgerName, isDevoured);
   res.json(result);
@@ -30,7 +30,7 @@ export async function updateBurger(req: express.Request, res: express.Response) 
     const body = req.body;
     const burgerId: number = utils.convertToInteger(req.params.burgerId);
     const burgerName: string = body.burgerName;
-    const devoured: boolean = utils.convertToBoolean(body.devoured);
+    const devoured: boolean = utils.convertStringToBoolean(body.devoured);
 
     const result: any = await burger.updateOne(burgerId, burgerName, devoured);
     res.json(result);

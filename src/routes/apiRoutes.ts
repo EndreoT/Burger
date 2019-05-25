@@ -8,6 +8,8 @@ router.get('/burgers', apiController.getAllBurgers);
 
 router.get('/burgers/:burgerId', apiController.getBurger);
 
+router.post('/burgers', apiController.addBurger);
+
 router.put('/burgers/:burgerId', apiController.updateBurger);
 
 router.delete('/burgers/:burgerId', apiController.deleteBurger);

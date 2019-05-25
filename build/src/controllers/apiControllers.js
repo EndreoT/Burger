@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const model_1 = require("../models/model");
-const utils = require("../utils.ts/utils");
+const utils = require("../utils/utils");
 async function getAllBurgers(req, res) {
     const burgers = await model_1.burger.selectAll();
     res.json(burgers);
@@ -16,7 +16,7 @@ exports.getBurger = getBurger;
 async function addBurger(req, res) {
     const body = req.body;
     const burgerName = body.burgerName;
-    const isDevoured = body;
+    const isDevoured = utils.convertStringToBoolean(body.devoured);
     const result = await model_1.burger.insertOne(burgerName, isDevoured);
     res.json(result);
 }
@@ -26,7 +26,7 @@ async function updateBurger(req, res) {
         const body = req.body;
         const burgerId = utils.convertToInteger(req.params.burgerId);
         const burgerName = body.burgerName;
-        const devoured = utils.convertToBoolean(body.devoured);
+        const devoured = utils.convertStringToBoolean(body.devoured);
         const result = await model_1.burger.updateOne(burgerId, burgerName, devoured);
         res.json(result);
     }

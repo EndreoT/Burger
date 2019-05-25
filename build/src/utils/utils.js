@@ -1,14 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function convertToBoolean(input) {
+function convertStringToBoolean(input) {
     try {
-        return JSON.parse(input);
+        const result = JSON.parse(input);
+        if (result >= 1) {
+            return true;
+        }
+        return false;
     }
     catch (err) {
         return false;
     }
 }
-exports.convertToBoolean = convertToBoolean;
+exports.convertStringToBoolean = convertStringToBoolean;
 function convertToInteger(input) {
     let result = Number(input);
     if (isNaN(result) || !Number.isInteger(result)) {
