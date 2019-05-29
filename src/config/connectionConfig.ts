@@ -1,10 +1,11 @@
-// import * as mysql from 'mysql';
-const path = require('path');
-require('dotenv').config({path: path.join(__dirname, '../../../.env')})
+import * as path from 'path';
+
+// Path has extra ../ because of build/src compile structure
+require('dotenv').config({path: path.join(__dirname, '../../../.env')});
 
 
 let configuration: any;
-console.log(process.env.JAWSDB_URL)
+
 if (process.env.JAWSDB_URL) {
   configuration = process.env.JAWSDB_URL;
 } else {
@@ -15,7 +16,6 @@ if (process.env.JAWSDB_URL) {
     password: '1234',
     database: 'burgers_db',
   };
-
 }
 
 export const config = configuration;

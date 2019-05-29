@@ -5,22 +5,20 @@
 
 
 		<div class="col-6">
-			<p>{{id}}. {{burger_name}}. {{topping}}</p>
+			<p>{{id}}. {{burger_name}}. Topping: {{topping}}</p>
 
 		</div>
 
 
-		<div class="col-6">
+		<div class="col-6 text-right">
 			{{#unless devoured}}
 			<button class="btn btn-success active change-devoured" data-id="{{id}}" data-name="{{burger_name}}">
 				Devoure it!
 			</button>
 			{{/unless}}
 
-			{{!-- <a href="https://github.com/EndreoT/Eclectic-List-Server" class="col-5 btn btn-dark btn-lg active" role="button"
-				aria-pressed="true" target="_blank">Github Repository</a> --}}
 			<button role="button"
-				aria-pressed="true" class="btn btn-danger active delete-burger" data-id="{{id}}" data-name="{{burger_name}}">Delete burger</button>
+				aria-pressed="true" class="btn btn-danger active delete-burger" data-id="{{id}}" data-name="{{burger_name}}">Delete</button>
 
 		</div>
 	</div>

@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import * as mysql from 'mysql';
-const path = require('path');
+const path = require("path");
+// Path has extra ../ because of build/src compile structure
 require('dotenv').config({ path: path.join(__dirname, '../../../.env') });
 let configuration;
-console.log(process.env.JAWSDB_URL);
 if (process.env.JAWSDB_URL) {
     configuration = process.env.JAWSDB_URL;
 }
