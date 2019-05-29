@@ -9,5 +9,8 @@ CREATE TABLE burgers (
   burger_name VARCHAR(30) NOT NULL,
   toppings VARCHAR(30) NOT NULL,
   devoured BOOLEAN NOT NULL,
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
+
+SELECT * FROM burgers;
