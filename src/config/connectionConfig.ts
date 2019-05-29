@@ -1,7 +1,10 @@
 // import * as mysql from 'mysql';
+const path = require('path');
+require('dotenv').config({path: path.join(__dirname, '../../../.env')})
+
 
 let configuration: any;
-
+console.log(process.env.JAWSDB_URL)
 if (process.env.JAWSDB_URL) {
   configuration = process.env.JAWSDB_URL;
 } else {
