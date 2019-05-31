@@ -1,14 +1,13 @@
-<div class="jumbotron">
+
+<div class="jumbotron" id="head">
+   <img id="krabby-patty" class="img-fluid rounded mx-auto d-block" src="assets/images/spongebob-plankton-krabby-patty.jpg" alt="Krabby Patty">
   <header class="container text-center">
     <h1>Munch Da Burger</h1>
   </header>
 </div>
 
-<div class="container">
-
-
-  <div id="burger-input" class="row">
-    <div class="jumbotron jumbotron-fluid">
+<div class="container-fluid">
+    <div id="burger-input" class="jumbotron">
       <div class="container">
         <form>
           <div class="form-group">
@@ -38,20 +37,17 @@
           </div>
         </form>
       </div>
-      {{!-- <img src="assets/images/spongebob-plankton-krabby-patty.jpg" alt="Krabby Patty"> --}}
+     
     </div>
-    
-
-  </div>
 
   <div class="row">
 
     <div id="not-devoured" class="col-md-6">
-      <div class="card bg-light">
+      <div class="card bg-light text-center">
         <h2>Burgers Ready for Devouring</h2>
 
         <div class="card">
-          <ul class="list-group list-group-flush">
+          <ul class="list-group list-group-flush text-left">
             {{#each burgers}}
             {{#unless devoured}}
             {{> burgers/burger-block}}
@@ -60,25 +56,15 @@
           </ul>
         </div>
 
-        {{!-- <div class="row">
-        <ul class="list-group">
-          {{#each burgers}}
-          {{#unless devoured}}
-          {{> burgers/burger-block}}
-          {{/unless}}
-          {{/each}}
-        </ul>
-
-      </div> --}}
       </div>
     </div>
 
     <div id="devoured" class="col-md-6">
-      <div class="card bg-light">
+      <div class="card bg-light text-center">
         <h2>Burgers Devoured</h2>
 
         <div class="card">
-          <ul class="list-group list-group-flush">
+          <ul class="list-group list-group-flush text-left">
             {{#each burgers}}
             {{#if devoured}}
             {{> burgers/burger-block}}
@@ -88,16 +74,6 @@
 
         </div>
 
-        {{!-- <div class="row">
-        <ul class="list-group">
-          {{#each burgers}}
-          {{#if devoured}}
-          {{> burgers/burger-block}}
-          {{/if}}
-          {{/each}}
-        </ul>
-
-      </div> --}}
       </div>
     </div>
   </div>
