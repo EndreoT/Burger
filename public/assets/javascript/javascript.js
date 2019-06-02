@@ -14,6 +14,7 @@ $(function () {
 
     const devouredBurger = {
       burgerName: $(this).data("name"),
+      topping: $(this).data("topping"),
       devoured: true
     };
     
