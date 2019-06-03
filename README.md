@@ -1,4 +1,4 @@
-# Mumch Da Burger
+# Munch Da Burger
 
 Deployed Link: https://munch-da-burger.herokuapp.com/
 
